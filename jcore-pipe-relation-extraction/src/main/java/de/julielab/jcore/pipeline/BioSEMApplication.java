@@ -16,8 +16,8 @@ import de.julielab.jcore.consumer.bionlp09event.main.EventConsumer;
 import de.julielab.jcore.reader.bionlp09event.main.EventReader;
 
 public class BioSEMApplication {
-    private static final String INPUT_FOLDER = "inFiles/BioNLP-ST_2011_genia_test_data/";
-    private static final String OUTPUT_FOLDER = "outFiles/BioNLP-ST_2011_genia_test_predicted/";
+    private static final String INPUT_FOLDER = "inFiles/";
+    private static final String OUTPUT_FOLDER = "outFiles/";
 
     private static final String AE_DESCRIPTOR = "de.julielab.jcore.ae.biosem.desc.jcore-biosem-ae-bionlp-st11";
     private static final String TYPES_DESCRIPTOR = "de.julielab.jcore.types.jcore-all-types";
