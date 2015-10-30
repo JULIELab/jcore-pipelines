@@ -7,6 +7,6 @@ public class BioSEMApplicationTest {
     @Test
     public void test() {
         BioSEMApplication app = new BioSEMApplication();
-        app.run();
+        app.main(new String[] {});
     }
 }

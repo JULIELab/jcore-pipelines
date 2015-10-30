@@ -17,7 +17,7 @@ import de.julielab.jcore.reader.bionlp09event.main.EventReader;
 
 public class BioSEMApplication {
     private static final String INPUT_FOLDER = "inFiles/BioNLP-ST_2011_genia_test_data/";
-    private static final Object OUTPUT_FOLDER = "outFiles/BioNLP-ST_2011_genia_test_predicted/";
+    private static final String OUTPUT_FOLDER = "outFiles/BioNLP-ST_2011_genia_test_predicted/";
 
     private static final String AE_DESCRIPTOR = "de.julielab.jcore.ae.biosem.desc.jcore-biosem-ae-bionlp-st11";
     private static final String TYPES_DESCRIPTOR = "de.julielab.jcore.types.jcore-all-types";
@@ -26,21 +26,21 @@ public class BioSEMApplication {
     AnalysisEngine relationExtractor = null;
     AnalysisEngine consumer = null;
 
-    public void run() {
-        initializeComponents();
+    public void run(String in, String out) {
+        initializeComponents(in, out);
         processXMIDocuments();
     }
 
-    private void initializeComponents() {
+    private void initializeComponents(String in, String out) {
         try {
             // init ST Reader
-            reader = CollectionReaderFactory.createReader(EventReader.class, EventReader.DIRECTORY_PARAM, INPUT_FOLDER,
+            reader = CollectionReaderFactory.createReader(EventReader.class, EventReader.DIRECTORY_PARAM, in,
                     EventReader.BIOEVENT_SERVICE_MODE_PARAM, false);
             // init BioSEM Event Extractor AE
             relationExtractor = AnalysisEngineFactory.createEngine(AE_DESCRIPTOR);
             // init ST Writer
-            consumer = AnalysisEngineFactory.createEngine(EventConsumer.class, EventConsumer.DIRECTORY_PARAM,
-                    OUTPUT_FOLDER, EventConsumer.BIOEVENT_SERVICE_MODE_PARAM, false);
+            consumer = AnalysisEngineFactory.createEngine(EventConsumer.class, EventConsumer.DIRECTORY_PARAM, out,
+                    EventConsumer.BIOEVENT_SERVICE_MODE_PARAM, false);
         } catch (ResourceInitializationException e) {
             e.printStackTrace();
         } catch (InvalidXMLException e) {
@@ -66,6 +66,20 @@ public class BioSEMApplication {
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) {
+        BioSEMApplication app = new BioSEMApplication();
+        if (args.length > 2) {
+            System.out.println("Too many arguments...");
+        } else if (args.length < 2) {
+            System.out.println("No in- and outputfolder declared; use default.");
+            app.run(INPUT_FOLDER, OUTPUT_FOLDER);
+        } else if (args.length == 2) {
+            String in = args[0];
+            String out = args[1];
+            app.run(in, out);
         }
     }
 }
