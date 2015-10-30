@@ -16,4 +16,7 @@
         <version>2.0.0</version>
     </parent>
     <name>JCoRe Pipelines</name>
+    <modules>
+    	<module>jcore-pipe-relation-extraction</module>
+    </modules>
 </project>
