@@ -16,6 +16,23 @@
         <version>2.0.0</version>
     </parent>
     <name>JCoRe Pipelines</name>
+    <dependencies>
+       <dependency>
+           <groupId>org.apache.uima</groupId>
+           <artifactId>uimaj-core</artifactId>
+           <version>${uima-version}</version>
+       </dependency>
+       <dependency>
+           <groupId>org.apache.uima</groupId>
+           <artifactId>uimafit-core</artifactId>
+           <version>${uimafit-version}</version>
+       </dependency>
+       <dependency>
+        <groupId>de.julielab</groupId>
+        <artifactId>jcore-types</artifactId>
+        <version>${jcore-version}</version>
+       </dependency>
+    </dependencies>
     <modules>
     	<module>jcore-pipe-relation-extraction</module>
     </modules>
