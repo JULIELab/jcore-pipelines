@@ -1,4 +1,4 @@
-package de.julielab.jcore.pipeline;
+package de.julielab.jcore.pipeline.relationextraction;
 
 import java.io.IOException;
 

@@ -2,6 +2,8 @@ package de.julielab.jcore.pipeline;
 
 import org.junit.Test;
 
+import de.julielab.jcore.pipeline.relationextraction.BioSEMApplication;
+
 public class BioSEMApplicationTest {
 
     @Test
