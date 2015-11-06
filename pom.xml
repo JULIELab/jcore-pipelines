@@ -36,4 +36,9 @@
     <modules>
     	<module>jcore-pipe-relation-extraction</module>
     </modules>
+    <scm>
+        <connection>scm:git:git@github.com:JULIELab/jcore-pipelines.git</connection>
+        <developerConnection>scm:git:git@github.com:JULIELab/jcore-pipelines.git</developerConnection>
+        <url>https://github.com/JULIELab/jcore-pipelines</url>
+    </scm>
 </project>
