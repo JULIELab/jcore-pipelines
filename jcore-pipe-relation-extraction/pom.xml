@@ -24,4 +24,7 @@
   		<version>${jcore-version}</version>
   	</dependency>
   </dependencies>
+  <scm>
+    <url>https://github.com/JULIELab/jcore-pipelines/tree/master/jcore-pipe-relation-extraction</url>
+  </scm>
 </project>
