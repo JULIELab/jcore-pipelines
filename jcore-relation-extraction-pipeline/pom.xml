@@ -5,7 +5,7 @@
     <artifactId>jcore-pipelines</artifactId>
     <version>2.0.0</version>
   </parent>
-  <artifactId>jcore-pipe-relation-extraction</artifactId>
+  <artifactId>jcore-relation-extraction-pipeline</artifactId>
   <name>JCoRe Relation Extraction Pipeline</name>
   <dependencies>
   	<dependency>
