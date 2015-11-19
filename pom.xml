@@ -34,7 +34,7 @@
        </dependency>
     </dependencies>
     <modules>
-    	<module>jcore-pipe-relation-extraction</module>
+    	<module>jcore-relation-extraction-pipeline</module>
     </modules>
     <scm>
         <connection>scm:git:git@github.com:JULIELab/jcore-pipelines.git</connection>
