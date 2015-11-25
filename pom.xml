@@ -29,12 +29,11 @@
        </dependency>
     </dependencies>
     <modules>
-    	<module>jcore-pipe-relation-extraction</module>
+    	<module>jcore-relation-extraction-pipeline</module>
     </modules>
     <scm>
         <connection>scm:git:git://github.com/JULIELab/jcore-pipelines.git</connection>
         <developerConnection>scm:git:git://github.com/JULIELab/jcore-pipelines.git</developerConnection>
         <url>scm:git:https://github.com/JULIELab/jcore-pipelines</url>
     </scm>
-    <url>https://github.com/JULIELab/jcore-pipelines</url>
 </project>
