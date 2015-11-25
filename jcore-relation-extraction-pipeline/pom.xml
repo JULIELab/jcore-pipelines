@@ -24,7 +24,10 @@
   		<version>${jcore-version}</version>
   	</dependency>
   </dependencies>
-  <scm>
-    <url>https://github.com/JULIELab/jcore-pipelines/tree/master/jcore-pipe-relation-extraction</url>
-  </scm>
+  <url>https://github.com/JULIELab/jcore-pipelines/tree/master/jcore-relation-extraction-pipeline</url>
+  <description>A simple pipeline that reads BioNLP-ST formatted files from the &quot;inFiles&quot; folder, runs the BioSEM relation extractor - trained on 2011 data - on them and outputs BioNLP-ST formatted files to &quot;outFiles&quot;.</description>
+  <organization>
+  	<name>JULIE Lab Jena, Germany</name>
+  	<url>http://www.julielab.de</url>
+  </organization>
 </project>
