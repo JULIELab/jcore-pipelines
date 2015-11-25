@@ -1,21 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>jcore-pipelines</artifactId>
-    <packaging>pom</packaging>
-    <description>The POM for JCoRe Pipelines</description>
-    <organization>
-        <name>JULIE Lab, Germany</name>
-        <url>http://www.julielab.de</url>
-    </organization>
+    
+    <!-- Basics & Project Information -->
     <parent>
         <groupId>de.julielab</groupId>
         <artifactId>jcore-parent</artifactId>
         <version>2.1.0-SNAPSHOT</version>
     </parent>
+    <artifactId>jcore-pipelines</artifactId>
+    <packaging>pom</packaging>
+    
     <name>JCoRe Pipelines</name>
+    <description>The POM for JCoRe Pipelines</description>
+    <organization>
+        <name>JULIE Lab, Germany</name>
+        <url>http://www.julielab.de</url>
+    </organization>
+    <licenses>
+        <license>
+            <name>GNU Lesser General Public License, Version 3.0</name>
+            <url>http://www.gnu.org/licenses/lgpl-3.0.html</url>
+        </license>
+    </licenses>
+    <url>https://github.com/JULIELab/jcore-pipelines</url>
+    
     <dependencies>
        <dependency>
            <groupId>org.apache.uima</groupId>
@@ -28,9 +41,12 @@
            <version>${uimafit-version}</version>
        </dependency>
     </dependencies>
+    
     <modules>
     	<module>jcore-relation-extraction-pipeline</module>
     </modules>
+    
+    <!-- Environment Settings -->
     <scm>
         <connection>scm:git:git://github.com/JULIELab/jcore-pipelines.git</connection>
         <developerConnection>scm:git:git://github.com/JULIELab/jcore-pipelines.git</developerConnection>
