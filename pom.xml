@@ -46,6 +46,28 @@
     	<module>jcore-relation-extraction-pipeline</module>
     </modules>
     
+    <!-- Build Settings -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>2.10</version>
+                <configuration>
+                    <executions>
+                        <execution>
+                            <id>copy-dependencies</id>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>copy-dependencies</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    
     <!-- Environment Settings -->
     <scm>
         <connection>scm:git:git://github.com/JULIELab/jcore-pipelines.git</connection>
