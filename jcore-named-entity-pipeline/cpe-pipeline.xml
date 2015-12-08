@@ -44,6 +44,18 @@
         <descriptor>
             <import name="de.julielab.jcore.ae.jnet.desc.jcore-jnet-ae-biomedical-english"/>
         </descriptor>
+<!-- 		<configurationParameterSettings> -->
+<!--                 <nameValuePair> -->
+<!--                     <name>EntityTypes</name> -->
+<!--                     <value> -->
+<!-- 						<array> -->
+<!-- 	                        <string>gene-protein=de.julielab.jcore.types.Protein</string> -->
+<!-- 	                        <string>gene-generic=de.julielab.jcore.types.Gene</string> -->
+<!-- 	                        <string>gene-rna=de.julielab.jcore.types.EntityMention</string> -->
+<!-- 						</array> -->
+<!--                     </value> -->
+<!--                 </nameValuePair> -->
+<!-- 		</configurationParameterSettings> -->
             <deploymentParameters/>
         <errorHandling>
             <errorRateThreshold action="terminate" value="0/1000"/>
@@ -58,16 +70,16 @@
         </descriptor>
             <configurationParameterSettings>
                 <nameValuePair>
-                    <name>outFileName</name>
+                    <name>outFolder</name>
                     <value>
-                        <string>data/outFiles/cas2iob.iob</string>
+                        <string>data/outFiles</string>
                     </value>
                 </nameValuePair>
                 <nameValuePair>
                     <name>labelNameMethods</name>
                     <value>
 						<array>
-	                        <string>Entity</string>
+	                        <string>EntityMention</string>
 						</array>
                     </value>
                 </nameValuePair>
@@ -77,6 +89,18 @@
 						<array>
 	                        <string>de.julielab.jcore.types.EntityMention=Entity</string>
 						</array>
+                    </value>
+                </nameValuePair>
+                <nameValuePair>
+                    <name>typePath</name>
+                    <value>
+						<string>de.julielab.jcore.types.</string>
+                    </value>
+                </nameValuePair>
+                <nameValuePair>
+                    <name>mode</name>
+                    <value>
+						<string>iob</string>
                     </value>
                 </nameValuePair>
             </configurationParameterSettings>
