@@ -42,11 +42,13 @@
        </dependency>
     </dependencies>
     
+<!--
     <modules>
     	<module>jcore-relation-extraction-pipeline</module>
 		<module>jcore-named-entity-pipeline</module>
     </modules>
-    
+-->
+
     <!-- Build Settings -->
     <build>
         <plugins>
