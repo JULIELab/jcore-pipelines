@@ -17,6 +17,11 @@
   <dependencies>
   	<dependency>
   		<groupId>de.julielab</groupId>
+  		<artifactId>jcore-opennlp-postag-ae-biomedical-english</artifactId>
+  		<version>${jcore-version}</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>de.julielab</groupId>
   		<artifactId>jcore-jsbd-ae-biomedical-english</artifactId>
   		<version>${jcore-version}</version>
   	</dependency>
