@@ -18,7 +18,7 @@
     <casProcessors casPoolSize="3" processingUnitThreadCount="1">
     <casProcessor deployment="integrated" name="JCoRe Sentence Annotator">
         <descriptor>
-            <import name="de.julielab.jcore.ae.jsbd.desc.jcore-jsbd-biomedical-english"/>
+            <import name="de.julielab.jcore.ae.jsbd.desc.jcore-jsbd-ae-biomedical-english"/>
         </descriptor>
             <deploymentParameters/>
         <errorHandling>
@@ -30,7 +30,7 @@
     </casProcessor>
     <casProcessor deployment="integrated" name="JCoRe Token Annotator">
         <descriptor>
-            <import name="de.julielab.jcore.ae.jtbd.desc.jcore-jtbd-biomedical-english"/>
+            <import name="de.julielab.jcore.ae.jtbd.desc.jcore-jtbd-ae-biomedical-english"/>
         </descriptor>
             <deploymentParameters/>
         <errorHandling>
@@ -92,7 +92,7 @@
     </casProcessor>
     <casProcessor deployment="integrated" name="JCoRe CAS2IOB Consumer">
         <descriptor>
-            <import name="de.julielab.jcore.consumer.cas2iob.desc.jcore-cas2iob"/>
+            <import name="de.julielab.jcore.consumer.cas2iob.desc.jcore-cas2iob-consumer"/>
         </descriptor>
             <configurationParameterSettings>
                 <nameValuePair>
