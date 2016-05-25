@@ -28,10 +28,36 @@
         </errorHandling>
         <checkpoint batch="10000" time="1000ms"/>
     </casProcessor>
-    <casProcessor deployment="integrated" name="JCoRe Named Token Annotator">
+    <casProcessor deployment="integrated" name="JCoRe Token Annotator">
         <descriptor>
             <import name="de.julielab.jcore.ae.jtbd.desc.jcore-jtbd-biomedical-english"/>
         </descriptor>
+            <deploymentParameters/>
+        <errorHandling>
+            <errorRateThreshold action="terminate" value="0/1000"/>
+            <maxConsecutiveRestarts action="terminate" value="30"/>
+            <timeout max="100000" default="-1"/>
+        </errorHandling>
+        <checkpoint batch="10000" time="1000ms"/>
+    </casProcessor>
+    <casProcessor deployment="integrated" name="JCoRe OpenNLP POS Tagger, PennBioIE">
+        <descriptor>
+            <import name="de.julielab.jcore.ae.opennlp.postag.desc.jcore-opennlp-postag-ae-biomedical-english"/>
+        </descriptor>
+        <configurationParameterSettings>
+        	<nameValuePair>
+                    <name>modelFile</name>
+                    <value>
+                        <string>de/julielab/jcore/ae/opennlp/postag/model/opennlp-postag-pennbioie.bin.gz</string>
+                    </value>
+                </nameValuePair>
+                <nameValuePair>
+                    <name>tagset</name>
+                    <value>
+                        <string>de.julielab.jcore.types.PennBioIEPOSTag</string>
+                    </value>
+                </nameValuePair>
+        </configurationParameterSettings>
             <deploymentParameters/>
         <errorHandling>
             <errorRateThreshold action="terminate" value="0/1000"/>
