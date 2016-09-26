@@ -4,8 +4,19 @@ import static org.apache.uima.fit.factory.AnalysisEngineFactory.createEngineDesc
 import static org.apache.uima.fit.factory.CollectionReaderFactory.createReaderDescription;
 import static org.apache.uima.fit.pipeline.SimplePipeline.runPipeline;
 
+import java.io.IOException;
+
+import org.apache.uima.UIMAException;
+import org.apache.uima.resource.ResourceInitializationException;
+import org.apache.uima.util.InvalidXMLException;
+
 import de.julielab.jcore.reader.file.main.FileReader;
 import de.julielab.jcore.consumer.xmi.CasToXmiConsumer;
+
+import net.sourceforge.argparse4j.ArgumentParsers;
+import net.sourceforge.argparse4j.inf.ArgumentParser;
+import net.sourceforge.argparse4j.inf.ArgumentParserException;
+import net.sourceforge.argparse4j.inf.Namespace;
 
 /* To successfully run the pipeline, the POM file needs to declare the imports
  * This is important to remember as for Readers/AEs that are not explicitly configured
@@ -14,13 +25,46 @@ import de.julielab.jcore.consumer.xmi.CasToXmiConsumer;
 
 public class MedicalPOSPipeline {
 	public static void main(String[] args) throws Exception {
+
+		Namespace ns = initArgParser(args);
+		startPipeline(ns.getString("input"), ns.getString("output"));
+		
+	}
+
+	private static Namespace initArgParser(String[] args) {
+		ArgumentParser parser = ArgumentParsers.newArgumentParser("Medical POS Tagging, German")
+				.defaultHelp(true)
+				.description("Starts a UIMA pipeline for POS tagging in the medical context."
+						+ "\nIncluded processes are Sentence Splitting, Tokenizing and POS Tagging.");
+		parser.addArgument("input")
+			.dest("input")
+			.metavar("Input-Folder");
+		parser.addArgument("output")
+			.dest("output")
+			.metavar("Output-Folder");
+		
+		Namespace ns = null;
+		try {
+			ns = parser.parseArgs(args);
+		} catch (ArgumentParserException e) {
+			System.out.println(e+"\n");
+			parser.printHelp();
+//			parser.handleError(e);
+			System.exit(1);
+		}
+		
+		return ns;
+	}
+
+	private static void startPipeline(String infolder, String outfolder) throws ResourceInitializationException,
+		InvalidXMLException, UIMAException, IOException {
 		// this UIMAfit method starts a simple UIMA Pipeline with the modules
 		// that are described/initialized further on
 		runPipeline(
 	    	// Since there is not pre-configured File Reader Project, it has to
 	    	// be initialized with specific parameters; e.g. the input directory
 	        createReaderDescription(FileReader.class,
-	            FileReader.DIRECTORY_INPUT, "tmp/"),
+	            FileReader.DIRECTORY_INPUT, infolder),
 	        // For the Analysis Engines there are pre-configured projects that
 	        // load the respective model; so all there needs to be done, is to
 	        // look up the descriptor path in their READMEs
@@ -32,7 +76,8 @@ public class MedicalPOSPipeline {
 	        // As with the reader, the writer is not pre-configured and you need
 	        // to initialize it with some parameters
 	        createEngineDescription(CasToXmiConsumer.class,
-	            CasToXmiConsumer.PARAM_OUTPUTDIR, "tmp/")
+	            CasToXmiConsumer.PARAM_OUTPUTDIR, outfolder)
 		);
+		
 	}
 }
