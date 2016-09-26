@@ -11,6 +11,7 @@ import org.apache.uima.resource.ResourceInitializationException;
 import org.apache.uima.util.InvalidXMLException;
 
 import de.julielab.jcore.reader.file.main.FileReader;
+import de.julielab.jcore.consumer.cas2conll.ConllConsumer;
 import de.julielab.jcore.consumer.xmi.CasToXmiConsumer;
 
 import net.sourceforge.argparse4j.ArgumentParsers;
@@ -77,9 +78,11 @@ public class MedicalPOSPipeline {
 	        // As with the reader, the writer is not pre-configured and you need
 	        // to initialize it with some parameters
 	        createEngineDescription(CasToXmiConsumer.class,
-	            CasToXmiConsumer.PARAM_OUTPUTDIR, outfolder,
+	            CasToXmiConsumer.PARAM_OUTPUTDIR, outfolder + "xmi/",
 	            CasToXmiConsumer.PARAM_FILE_NAME_TYPE, "de.julielab.jcore.types.Header",
-	            CasToXmiConsumer.PARAM_FILE_NAME_FEATURE, "docId")
+	            CasToXmiConsumer.PARAM_FILE_NAME_FEATURE, "docId"),
+	        createEngineDescription(ConllConsumer.class,
+	        	ConllConsumer.PARAM_OUTPUT_DIR, outfolder + "conll/")
 		);
 		
 	}
