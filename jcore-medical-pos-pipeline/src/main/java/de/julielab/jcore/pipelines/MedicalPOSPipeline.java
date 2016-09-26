@@ -47,7 +47,7 @@ public class MedicalPOSPipeline {
 		try {
 			ns = parser.parseArgs(args);
 		} catch (ArgumentParserException e) {
-			System.out.println(e+"\n");
+			System.out.println("[ERROR] "+e+"\n");
 			parser.printHelp();
 //			parser.handleError(e);
 			System.exit(1);
