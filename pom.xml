@@ -38,14 +38,6 @@
            <version>${uimafit-version}</version>
        </dependency>
     </dependencies>
-    
-
-
-
-
-
-
-    
     <build>
         <plugins>
             <plugin>
@@ -76,9 +68,4 @@
         <developerConnection>scm:git:git://github.com/JULIELab/jcore-pipelines.git</developerConnection>
         <url>scm:git:https://github.com/JULIELab/jcore-pipelines</url>
     </scm>
-    <modules>
-    	<module>jcore-medical-pos-pipeline</module>
-    	<module>jcore-named-entity-pipeline</module>
-    	<module>jcore-relation-extraction-pipeline</module>
-    </modules>
 </project>
