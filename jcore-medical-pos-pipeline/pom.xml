@@ -34,5 +34,10 @@
   		<artifactId>jcore-xmi-writer</artifactId>
   		<version>${jcore-version}</version>
   	</dependency>
+  	<dependency>
+  		<groupId>de.julielab</groupId>
+  		<artifactId>jcore-types</artifactId>
+  		<version>2.2.1</version>
+  	</dependency>
   </dependencies>
 </project>

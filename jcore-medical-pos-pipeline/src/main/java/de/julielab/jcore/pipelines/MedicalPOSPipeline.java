@@ -19,7 +19,7 @@ public class MedicalPOSPipeline {
 	    	// Since there is not pre-configured File Reader Project, it has to
 	    	// be initialized with specific parameters; e.g. the input directory
 	        createReaderDescription(FileReader.class,
-	            FileReader.DIRECTORY_INPUT, "tmp/wiki-bsp.txt"),
+	            FileReader.DIRECTORY_INPUT, "tmp/"),
 	        // For the Analysis Engines there are pre-configured projects that
 	        // load the respective model; so all there needs to be done, is to
 	        // look up the descriptor path in their READMEs
