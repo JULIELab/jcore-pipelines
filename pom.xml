@@ -1,12 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
-                             http://maven.apache.org/maven-v4_0_0.xsd">
+<?xml version='1.0' encoding='UTF-8'?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0                              http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
     
-    <!-- Basics & Project Information -->
+    
     <parent>
         <groupId>de.julielab</groupId>
         <artifactId>jcore-parent</artifactId>
@@ -42,13 +39,13 @@
        </dependency>
     </dependencies>
     
-<!--     <modules> -->
-<!--     	<module>jcore-relation-extraction-pipeline</module> -->
-<!-- 		<module>jcore-named-entity-pipeline</module> -->
-<!--     </modules> -->
 
 
-    <!-- Build Settings -->
+
+
+
+
+    
     <build>
         <plugins>
             <plugin>
@@ -73,10 +70,15 @@
         </plugins>
     </build>
     
-    <!-- Environment Settings -->
+    
     <scm>
         <connection>scm:git:git://github.com/JULIELab/jcore-pipelines.git</connection>
         <developerConnection>scm:git:git://github.com/JULIELab/jcore-pipelines.git</developerConnection>
         <url>scm:git:https://github.com/JULIELab/jcore-pipelines</url>
     </scm>
+    <modules>
+    	<module>jcore-medical-pos-pipeline</module>
+    	<module>jcore-named-entity-pipeline</module>
+    	<module>jcore-relation-extraction-pipeline</module>
+    </modules>
 </project>

@@ -1,0 +1,33 @@
+Männlicher Patient geb 1945, stationär 25.10.2011 – 07.11.2011
+
+Diagnosen
+Akuter Hinterwandmyokardinfarkt mit ST-Hebung (sogenannter „STEMI“)
+Koronare 2-Gefäßerkrankung
+RCX: Langstreckiger Verschluß (alt) des RMS mit relativ guter Kollateralenbildung vom apikalen RIVA her
+ACD = RCA = Rechte Kranzarterie (dominantes Gefäß): ostiumnaher Verschluß
+Thrombusabsaugung und Implantation eines medikamentenfreisetzenden Stents (DES)
+Mitralklappeninsuffizienz Grad 1
+Kardiovaskuläre Risikofaktoren:
+Benigne essentielle Hypertonie: Ohne Angabe einer hypertensiven Krise [I10.00]
+Gestörte Glucosetolereanz,
+Hyperlipidämie
+
+Anamnese
+Am Aufnahmetag bekam Herr Sowieso plötzlich starke Luftnot und Thoraxschmerzen bei leichter Belastung. Bereits seit ca. 6 Monaten habe er immer wieder leichte thorakale Schmerzen, die vom Hausarzt als vertebragen klassifiziert worden seien. Vom Notarzt hatte er Fentanyl und Nitro Spray bekommen. In der Familie keine Herzerkrankungen, kein Schlaganfall; fraglich Diabetes.
+
+Labor
+Transthorakales Echocardiogramm:
+Linker Ventrikel normal weit und normal kontraktil, keine regionalen Wandbewegungsstörungen, auch keine erkennbare HW-Narbe, Auswurffraktion normal, EF planimetrisch 64 %. grenzwertige LV-Hypertrophie, Septum edd 10 mm, diastolische Relaxationsstörung Grad II (DT 284 ms, IVRT 57 ms, LA-Vol.-Index 35,1 ml/m²). Vorhöfe leicht dilatiert (LA 23 cm², RA 17 cm²) und rechter Ventrikel normal weit, gute RV-Funktion, TAPSE 24 mm. Aortenklappe leicht sklerosiert, keine Stenose, leichtgradige Insuffizienz (PHT nicht messbar) Leichtgradige Mitralinsuffizienz, V. contracta 4 mm. Trikuspidalis unauffällig. Pulmonalis mit leichtgradiger Insuffizienz. Normfrequenter Sinusrhythmus, kein Perikarderguss. Normal großer LV mit guter systolischer Pumpfunktion, grenzwertige LV-Hypertrophie mit diastolischer Relaxationsstörung, leichtgradige AI, MI und PI, gute RV-Funktion.
+
+Herzkatheteruntersuchung
+Beurteilung: Es zeigt sich als Ursache des akuten Hinterwandinfarktes ein proximaler Verschluss der dominanten RCA. In gleicher Sitzung erfolgt eine PCI. Nach Vorführen des Führungsdrahtes Thrombussaugextraktion, dann Gabe von insgesamt 8ml Aggrastat intracoronar, direkte Stentimplantation. Abschließend gutes Ergebnis, guter Fluss im Gefäß, Patient sofort beschwerdefrei, ST-Hebungen im EKG bilden sich vollständig zurück.
+
+Epikrise:
+Der Patient wurde wegen instabiler Angina pectoris eingewiesen. Im EKG zeigten sich diskrete Hebungen in der Ableitung II und III und ST-Senkungen V1 bis V3. In der Herzkatheteruntersuchung zeigte sich ein Verschluss des RCA, so dass in gleicher Sitzung eine Thrombusabsaugung und Implantation eines medikamentenfreisetzenden Stent (DES) erfolgte. Nach der Herzkatheteruntersuchung ist Hr. Sowieso beschwerdefrei. Im weiteren Verlauf war der Patient stabil, bei Krankengymnastik kooperativ.
+
+Therapieempfehlung / Medikation:
+Simva (Simvastatin) 20 0-0-1
+Plavix (Clopidogrel) 75 1-0-0 für weitere 12 Monate
+ASS (Acetylsalicylsäure) 100 0-1-0 dauerhaft
+Beloc zok mite (Metoprolol) 1-0-0
+Delix (Ramipril) 5 1-0-0
