@@ -8,8 +8,9 @@ import de.julielab.jcore.reader.file.main.FileReader;
 import de.julielab.jcore.consumer.xmi.CasToXmiConsumer;
 
 /* To successfully run the pipeline, the POM file needs to declare the imports
- * This is important to remember as Readers/AEs that are not explicitly configured
- * here (i.e. all that are initialized by a descriptor */
+ * This is important to remember as for Readers/AEs that are not explicitly configured
+ * here (i.e. all that are initialized by a descriptor) Eclipse (or some other IDE)
+ * won't throw a warning/error message */
 
 public class MedicalPOSPipeline {
 	public static void main(String[] args) throws Exception {
