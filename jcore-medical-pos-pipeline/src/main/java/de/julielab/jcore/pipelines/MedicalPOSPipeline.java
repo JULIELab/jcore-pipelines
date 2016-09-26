@@ -64,7 +64,8 @@ public class MedicalPOSPipeline {
 	    	// Since there is not pre-configured File Reader Project, it has to
 	    	// be initialized with specific parameters; e.g. the input directory
 	        createReaderDescription(FileReader.class,
-	            FileReader.DIRECTORY_INPUT, infolder),
+	            FileReader.DIRECTORY_INPUT, infolder,
+	            FileReader.FILENAME_AS_DOC_ID, true),
 	        // For the Analysis Engines there are pre-configured projects that
 	        // load the respective model; so all there needs to be done, is to
 	        // look up the descriptor path in their READMEs
@@ -76,7 +77,9 @@ public class MedicalPOSPipeline {
 	        // As with the reader, the writer is not pre-configured and you need
 	        // to initialize it with some parameters
 	        createEngineDescription(CasToXmiConsumer.class,
-	            CasToXmiConsumer.PARAM_OUTPUTDIR, outfolder)
+	            CasToXmiConsumer.PARAM_OUTPUTDIR, outfolder,
+	            CasToXmiConsumer.PARAM_FILE_NAME_TYPE, "de.julielab.jcore.types.Header",
+	            CasToXmiConsumer.PARAM_FILE_NAME_FEATURE, "docId")
 		);
 		
 	}
