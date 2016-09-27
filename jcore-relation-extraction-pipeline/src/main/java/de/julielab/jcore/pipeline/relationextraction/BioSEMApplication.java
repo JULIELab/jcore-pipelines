@@ -34,12 +34,14 @@ public class BioSEMApplication {
     private void initializeComponents(String in, String out) {
         try {
             // init ST Reader
-            reader = CollectionReaderFactory.createReader(EventReader.class, EventReader.DIRECTORY_PARAM, in,
+            reader = CollectionReaderFactory.createReader(EventReader.class,
+            		EventReader.DIRECTORY_PARAM, in,
                     EventReader.BIOEVENT_SERVICE_MODE_PARAM, false);
             // init BioSEM Event Extractor AE
             relationExtractor = AnalysisEngineFactory.createEngine(AE_DESCRIPTOR);
             // init ST Writer
-            consumer = AnalysisEngineFactory.createEngine(EventConsumer.class, EventConsumer.DIRECTORY_PARAM, out,
+            consumer = AnalysisEngineFactory.createEngine(EventConsumer.class,
+            		EventConsumer.DIRECTORY_PARAM, out,
                     EventConsumer.BIOEVENT_SERVICE_MODE_PARAM, false);
         } catch (ResourceInitializationException e) {
             e.printStackTrace();

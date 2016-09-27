@@ -21,7 +21,7 @@ else
 fi
 
 ### compiles the java file
-if [ ! -f "target/classes/de/julielab/jcore/pipelines/MedicalPOSPipeline.class" ]; then
+if [ ! -f "target/classes/de/julielab/jcore/pipeline/MedicalPOSPipeline.class" ]; then
 	echo "[Maven] Compiling sources for the first time"
 	mvn compile
 fi
@@ -30,4 +30,4 @@ fi
 export CLASSPATH=`for i in $java_libs/*.jar; do echo -n "$i:";done;echo -n ""`
 
 ### run the pipeline with given arguments
-java -cp $CLASSPATH"./target/classes" de.julielab.jcore.pipelines.MedicalPOSPipeline $*
+java -cp $CLASSPATH"./target/classes" de.julielab.jcore.pipeline.MedicalPOSPipeline $*

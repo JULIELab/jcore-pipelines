@@ -1,4 +1,4 @@
-package de.julielab.jcore.pipelines;
+package de.julielab.jcore.pipeline;
 
 import static org.apache.uima.fit.factory.AnalysisEngineFactory.createEngineDescription;
 import static org.apache.uima.fit.factory.CollectionReaderFactory.createReaderDescription;
