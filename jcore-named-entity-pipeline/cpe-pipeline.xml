@@ -12,6 +12,12 @@
                         <string>data/inFiles</string>
                     </value>
                 </nameValuePair>
+		<nameValuePair>
+                    <name>UseFilenameAsDocId</name>
+                    <value>
+                        <boolean>true</boolean>
+                    </value>
+                </nameValuePair>
             </configurationParameterSettings>
         </collectionIterator>
     </collectionReader>
