@@ -4,7 +4,7 @@
     <parent>
         <groupId>de.julielab</groupId>
         <artifactId>jcore-pipelines</artifactId>
-        <version>2.2.0</version>
+        <version>2.3.0-SNAPSHOT</version>
     </parent>
     <artifactId>jcore-relation-extraction-pipeline</artifactId>
     <name>JCoRe Relation Extraction Pipeline</name>
@@ -12,11 +12,11 @@
         <dependency>
             <groupId>de.julielab</groupId>
             <artifactId>jcore-types</artifactId>
-            <version>2.2.2</version>
+            <version>${jcore-version}</version>
         </dependency>
         <dependency>
             <groupId>de.julielab</groupId>
-            <artifactId>jcore-bionlp09event-reader</artifactId>
+            <artifactId>jcore-bionlpformat-reader</artifactId>
             <version>${jcore-version}</version>
         </dependency>
         <dependency>
@@ -26,7 +26,7 @@
         </dependency>
         <dependency>
             <groupId>de.julielab</groupId>
-            <artifactId>jcore-bionlp09event-consumer</artifactId>
+            <artifactId>jcore-bionlpformat-consumer</artifactId>
             <version>${jcore-version}</version>
         </dependency>
     </dependencies>

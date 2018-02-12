@@ -12,8 +12,8 @@ import org.apache.uima.jcas.JCas;
 import org.apache.uima.resource.ResourceInitializationException;
 import org.apache.uima.util.InvalidXMLException;
 
-import de.julielab.jcore.consumer.bionlp09event.main.EventConsumer;
-import de.julielab.jcore.reader.bionlp09event.main.EventReader;
+import de.julielab.jcore.consumer.bionlpformat.main.BioEventConsumer;
+import de.julielab.jcore.reader.bionlpformat.main.BioEventReader;
 
 public class BioSEMApplication {
     private static final String INPUT_FOLDER = "inFiles/";
@@ -34,15 +34,15 @@ public class BioSEMApplication {
     private void initializeComponents(String in, String out) {
         try {
             // init ST Reader
-            reader = CollectionReaderFactory.createReader(EventReader.class,
-            		EventReader.DIRECTORY_PARAM, in,
-                    EventReader.BIOEVENT_SERVICE_MODE_PARAM, false);
+            reader = CollectionReaderFactory.createReader(BioEventReader.class,
+            		BioEventReader.DIRECTORY_PARAM, in,
+            		BioEventReader.BIOEVENT_SERVICE_MODE_PARAM, false);
             // init BioSEM Event Extractor AE
             relationExtractor = AnalysisEngineFactory.createEngine(AE_DESCRIPTOR);
             // init ST Writer
-            consumer = AnalysisEngineFactory.createEngine(EventConsumer.class,
-            		EventConsumer.DIRECTORY_PARAM, out,
-                    EventConsumer.BIOEVENT_SERVICE_MODE_PARAM, false);
+            consumer = AnalysisEngineFactory.createEngine(BioEventConsumer.class,
+            		BioEventConsumer.DIRECTORY_PARAM, out,
+            		BioEventConsumer.BIOEVENT_SERVICE_MODE_PARAM, false);
         } catch (ResourceInitializationException e) {
             e.printStackTrace();
         } catch (InvalidXMLException e) {
