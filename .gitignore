@@ -3,3 +3,5 @@
 /.project
 /target/
 /jcore-medical-pos-pipeline.tar.gz
+*.iml
+.idea

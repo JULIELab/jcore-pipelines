@@ -19,6 +19,7 @@ import de.julielab.jcore.reader.bionlpformat.main.BioEventReader;
 public class BioSEMApplication {
     static final String PATH_DELIM = System.getProperty("file.separator");
     static final String NEWLINE = System.getProperty("line.separator");
+    static final String WORKDIR = System.getProperty("user.dir");
 
     private static final String INPUT_FOLDER = "inFiles/";
     private static final String OUTPUT_FOLDER = "outFiles/";
@@ -86,7 +87,7 @@ public class BioSEMApplication {
                 System.out.println("Model: " + getModel());
             } else {
                 model = "st09";
-                System.out.println("No modus specified (-m). Defaulting to: 'st09' model.");
+                System.out.println("No model specified (-m). Defaulting to: 'st09' model.");
             }
 
             /** ----- Input Folder ----- **/
@@ -95,8 +96,8 @@ public class BioSEMApplication {
                 input_root = (String) param;
                 System.out.println("Input: " + getInput_root());
             } else {
-                System.out.println("No input directory (-i) specified. Defaulting to: '" + INPUT_FOLDER +"'");
-                input_root = INPUT_FOLDER;
+                input_root = WORKDIR + PATH_DELIM + INPUT_FOLDER;
+                System.out.println("No input directory (-i) specified. Defaulting to: '" + input_root +"'");
             }
 
             /** ----- Output Folder ----- **/
@@ -105,8 +106,8 @@ public class BioSEMApplication {
                 output_root = (String) param;
                 System.out.println("Output: " + getOutput_root());
             } else {
-                System.out.println("No output directory (-o) specified. Defaulting to: '" + OUTPUT_FOLDER +"'");
-                output_root = OUTPUT_FOLDER;
+                output_root = WORKDIR + PATH_DELIM + OUTPUT_FOLDER;
+                System.out.println("No output directory (-o) specified. Defaulting to: '" + output_root +"'");
             }
 
         } catch (ParseException e) {
