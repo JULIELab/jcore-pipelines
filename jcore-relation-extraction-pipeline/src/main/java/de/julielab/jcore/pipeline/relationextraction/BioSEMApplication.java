@@ -2,6 +2,7 @@ package de.julielab.jcore.pipeline.relationextraction;
 
 import java.io.IOException;
 
+import org.apache.commons.cli.*;
 import org.apache.uima.UIMAException;
 import org.apache.uima.analysis_engine.AnalysisEngine;
 import org.apache.uima.collection.CollectionReader;
@@ -16,29 +17,125 @@ import de.julielab.jcore.consumer.bionlpformat.main.BioEventConsumer;
 import de.julielab.jcore.reader.bionlpformat.main.BioEventReader;
 
 public class BioSEMApplication {
+    static final String PATH_DELIM = System.getProperty("file.separator");
+    static final String NEWLINE = System.getProperty("line.separator");
+
     private static final String INPUT_FOLDER = "inFiles/";
     private static final String OUTPUT_FOLDER = "outFiles/";
 
-    private static final String AE_DESCRIPTOR = "de.julielab.jcore.ae.biosem.desc.jcore-biosem-ae-bionlp-st11";
+    private static final String AE_09_DESCRIPTOR = "de.julielab.jcore.ae.biosem.desc.jcore-biosem-ae-bionlp-st09";
+    private static final String AE_11_DESCRIPTOR = "de.julielab.jcore.ae.biosem.desc.jcore-biosem-ae-bionlp-st11";
+    private static final String AE_13_DESCRIPTOR = "de.julielab.jcore.ae.biosem.desc.jcore-biosem-ae-bionlp-st13";
     private static final String TYPES_DESCRIPTOR = "de.julielab.jcore.types.jcore-all-types";
 
     CollectionReader reader;
     AnalysisEngine relationExtractor = null;
     AnalysisEngine consumer = null;
 
-    public void run(String in, String out) {
-        initializeComponents(in, out);
+    private static String input_root;
+    private static String output_root;
+    private static String model;
+
+    public void run() {
+        initializeComponents(getInput_root(), getOutput_root(), getModel());
         processXMIDocuments();
     }
 
-    private void initializeComponents(String in, String out) {
+    public static String getInput_root() {
+        return input_root;
+    }
+
+    public static String getOutput_root() {
+        return output_root;
+    }
+
+    public static String getModel() {
+        return model;
+    }
+
+    private void readCommandLineArgs(String[] args) {
+        CommandLineParser cmd = new BasicParser();
+        CommandLine paramParser = null;
+        HelpFormatter formatter = new HelpFormatter();
+        Options options = new Options();
+        options.addOption("i", "input", true, "input folder");
+        options.addOption("o", "output", true, "output folder");
+        options.addOption("m", "model", true, "model: {st09, st11, st13}");
+        options.addOption("h", "help", false, "help");
+
+        try {
+            paramParser = cmd.parse(options, args);
+            Object param;
+
+            /** ----- Help ----- **/
+            if (paramParser.hasOption("h")) {
+                formatter.printHelp(this.getClass().getName(), options);
+                System.exit(0);
+            }
+
+            /** ----- Model ----- **/
+            param = paramParser.getOptionValue("m");
+            if (param != null) {
+                model = (String) param;
+                if (!(getModel().equalsIgnoreCase("st09") || getModel().equalsIgnoreCase("st11")
+                        || getModel().equalsIgnoreCase("st13"))) {
+                    System.out.println("Model \"" + getModel() + "\" is not known." + NEWLINE +
+                            "Choose one of 'st09', 'st11' or 'st13' " + "Aborting.");
+                    System.exit(-1);
+                }
+                System.out.println("Model: " + getModel());
+            } else {
+                model = "st09";
+                System.out.println("No modus specified (-m). Defaulting to: 'st09' model.");
+            }
+
+            /** ----- Input Folder ----- **/
+            param = paramParser.getOptionValue("i");
+            if (param != null) {
+                input_root = (String) param;
+                System.out.println("Input: " + getInput_root());
+            } else {
+                System.out.println("No input directory (-i) specified. Defaulting to: '" + INPUT_FOLDER +"'");
+                input_root = INPUT_FOLDER;
+            }
+
+            /** ----- Output Folder ----- **/
+            param = paramParser.getOptionValue("o");
+            if (param != null) {
+                output_root = (String) param;
+                System.out.println("Output: " + getOutput_root());
+            } else {
+                System.out.println("No output directory (-o) specified. Defaulting to: '" + OUTPUT_FOLDER +"'");
+                output_root = OUTPUT_FOLDER;
+            }
+
+        } catch (ParseException e) {
+            System.out.println(e.getMessage());
+            formatter.printHelp(this.getClass().getName(), options);
+            System.exit(-1);
+        }
+    }
+
+    private void initializeComponents(String in, String out, String model) {
         try {
             // init ST Reader
             reader = CollectionReaderFactory.createReader(BioEventReader.class,
             		BioEventReader.DIRECTORY_PARAM, in,
             		BioEventReader.BIOEVENT_SERVICE_MODE_PARAM, false);
             // init BioSEM Event Extractor AE
-            relationExtractor = AnalysisEngineFactory.createEngine(AE_DESCRIPTOR);
+            switch (model) {
+                case "st09":
+                    relationExtractor = AnalysisEngineFactory.createEngine(AE_09_DESCRIPTOR);
+                    break;
+                case "st11":
+                    relationExtractor = AnalysisEngineFactory.createEngine(AE_11_DESCRIPTOR);
+                    break;
+                case "st13":
+                    relationExtractor = AnalysisEngineFactory.createEngine(AE_13_DESCRIPTOR);
+                    break;
+                default:
+                    break;
+            }
             // init ST Writer
             consumer = AnalysisEngineFactory.createEngine(BioEventConsumer.class,
             		BioEventConsumer.DIRECTORY_PARAM, out,
@@ -73,15 +170,7 @@ public class BioSEMApplication {
 
     public static void main(String[] args) {
         BioSEMApplication app = new BioSEMApplication();
-        if (args.length > 2) {
-            System.out.println("Too many arguments...");
-        } else if (args.length < 2) {
-            System.out.println("No in- and outputfolder declared; use default.");
-            app.run(INPUT_FOLDER, OUTPUT_FOLDER);
-        } else if (args.length == 2) {
-            String in = args[0];
-            String out = args[1];
-            app.run(in, out);
-        }
+        app.readCommandLineArgs(args);
+        app.run();
     }
 }
